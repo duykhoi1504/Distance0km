@@ -12,25 +12,25 @@ public enum LessonStage
 public class LessonQuestController : MonoBehaviour
 {
 
+    // TMPro.TMP_Text QuestionText;
+    // TMPro.TMP_Text[] AnswerTexts;
+
     [SerializeField] private QuestData GiaoAnQuest;
     private LessonStage stage;
 
     public void CompleteQuiz()
     {
-        stage =
-            LessonStage.Typing;
+        stage =LessonStage.Typing;
     }
 
     public void CompleteTyping()
     {
-        stage =
-            LessonStage.Grading;
+        stage =LessonStage.Grading;
     }
 
     public void CompleteGrading()
     {
-        stage =
-            LessonStage.Complete;
+        stage =LessonStage.Complete;
 
         QuestManager.Instance
             .CompleteQuest(

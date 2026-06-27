@@ -11,14 +11,12 @@ public enum PhoneStageEnum
 public class Phone : Interactable
 {
     public PhoneStageEnum currentStage;
-     [SerializeField]
-    private QuestData breakfastQuest;
-    public void FinishMessage()
-    {
-        QuestManager.Instance
-            .UnlockQuest(
-                breakfastQuest);
-    }
+     [SerializeField]private QuestData breakfastQuest;
+
+    // public void FinishMessage()
+    // {
+    //     QuestManager.Instance.UnlockQuest(breakfastQuest);
+    // }
     public override void Interact()
     {
         switch (currentStage)
@@ -26,13 +24,11 @@ public class Phone : Interactable
             case PhoneStageEnum.WakeUp:
                 // DialogueManager.Instance.Show("Chào buổi sáng cô giáo của anh ❤️");
                 Debug.Log("Chào buổi sáng cô giáo của anh ❤️");
-
                 // QuestManager.Instance.StartQuest("Breakfast");
-                Debug.Log("<color=green>Start Quest: Breakfast</color>");
-
-
                 currentStage = PhoneStageEnum.Breakfast;
-                FinishMessage();
+                GameManager.Instance.StartLevel(CONSTANT.level_1);
+                Debug.Log("<color=green>Start Quest: Breakfast</color>");
+                // FinishMessage();
                 break;
 
             case PhoneStageEnum.Breakfast:
